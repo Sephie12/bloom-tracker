@@ -68,6 +68,7 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
+	registerAPI(mux)
 
 	mux.Handle("/static/", http.FileServer(http.FS(staticFS)))
 	mux.HandleFunc("/sw.js", serveEmbeddedStatic("static/sw.js", "application/javascript; charset=utf-8", true))
